@@ -4,7 +4,9 @@ import java.nio.ByteBuffer
 import kotlin.random.Random
 import kotlin.random.nextUInt
 
-
+/**
+ * Создает случайный IP адрес и возвращает его числовое и строковое представление.
+ */
 fun genIpAddress(rnd: Random): Pair<UInt, String> {
     val uint = rnd.nextUInt()
     val b1 = (uint shr 24).toUByte()
@@ -14,6 +16,9 @@ fun genIpAddress(rnd: Random): Pair<UInt, String> {
     return uint to "$b1.$b2.$b3.$b4"
 }
 
+/**
+ * Конвертирует строковое представление IP адреса в его числовое представление.
+ */
 fun ipStrToUInt(ipStr: String): UInt {
     var s: String = ""
     var j: Int = 0
@@ -73,6 +78,9 @@ fun incrementBlock(inByte: Byte, itemNumber: Int): Byte {
     return ((newBits shl shift) or clearedBits).toByte()
 }
 
+/**
+ * Разбивает байт на 4 двух-битовые блоки и возвращает их значений в виде массива из 4-х байтов.
+ */
 fun getItemsValuesFromByte(b: Byte): ByteArray {
     val i = b.toUInt()
     val mask1 = ((i and 0b11000000u) shr 6).toByte()

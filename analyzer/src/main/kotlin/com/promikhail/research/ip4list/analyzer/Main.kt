@@ -10,7 +10,7 @@ import kotlin.time.measureTimedValue
 
 
 fun main() = runBlocking {
-    val fileName = "ip4list_100_000.txt"
+    val fileName = "ip4list_5_000_000_000.txt"
     val file = File("files/$fileName")
 
     if(!file.exists()) {

@@ -6,7 +6,7 @@ import com.promikhail.research.ip4list.tools.getArgsMap
 fun main(args: Array<String>) {
     val m = getArgsMap(args)
 
-    val ipCount = 100_000L
+    val ipCount = 5_000_000_000L
     val isCrLf = false
 
     if (m["mode"] == "mapped") {

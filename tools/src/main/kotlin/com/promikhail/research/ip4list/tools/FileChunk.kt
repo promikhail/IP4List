@@ -9,6 +9,10 @@ data class FileChunk(
     val endPos: Long,
 )
 
+/**
+ * Функция разбивает длину файла на [chunkCount] равных частей и возвращает список [FileChunk].
+ * Каждый элемент содержит номер, позиции начала и конца текущей части файла.
+ */
 fun createFileChunksList(file: File, chunkCount: Int): List<FileChunk> {
     require(chunkCount in 1..32)
     val fileSize = file.length()

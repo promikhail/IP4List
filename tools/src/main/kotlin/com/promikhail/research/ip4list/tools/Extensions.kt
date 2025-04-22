@@ -5,6 +5,9 @@ import java.nio.CharBuffer
 import java.nio.channels.FileChannel
 
 
+/**
+ * Сдвигает текущую позицию в канале файла на первый конец строки после [searchStartPosition].
+ */
 fun FileChannel.moveChannelPositionToFirstNewLine(searchStartPosition: Long) {
     val buffer = ByteBuffer.allocate(BUFFER_EXTRA_SIZE)
     this.position(searchStartPosition)
@@ -14,6 +17,9 @@ fun FileChannel.moveChannelPositionToFirstNewLine(searchStartPosition: Long) {
     this.position(newPosition)
 }
 
+/**
+ * Возвращает число символов между последним концом строки и лимитом буфера.
+ */
 fun ByteBuffer.getLastCrLfOffsetToEnd(): Int {
     for (i in this.limit() - 1 downTo this.position()) {
         if (this.get(i) == LF) return this.limit() - i - 1
@@ -21,6 +27,9 @@ fun ByteBuffer.getLastCrLfOffsetToEnd(): Int {
     return -1
 }
 
+/**
+ * Возвращает число символов между [searchStartPosition] и первым концом строки после [searchStartPosition].
+ */
 fun ByteBuffer.getFirstCrLfOffsetFromPosition(searchStartPosition: Int): Int {
     for (i in searchStartPosition until this.limit()) {
         if (this.get(i) == CR) return i + 2
@@ -29,6 +38,9 @@ fun ByteBuffer.getFirstCrLfOffsetFromPosition(searchStartPosition: Int): Int {
     return -1
 }
 
+/**
+ * Считывает все строки из буфера и передает каждую в [action].
+ */
 suspend fun ByteBuffer.readAllLinesOfBuffer(ca: CharBuffer, action: suspend (String) -> Unit) {
     ca.clear()
     var b: Byte
