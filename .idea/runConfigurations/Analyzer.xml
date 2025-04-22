@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Analyzer" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="com.promikhail.research.ip4list.analyzer.MainKt" />
+    <module name="IP4List.analyzer.main" />
+    <shortenClasspath name="NONE" />
+    <option name="VM_PARAMETERS" value="-Xms1g -Xmx4g" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

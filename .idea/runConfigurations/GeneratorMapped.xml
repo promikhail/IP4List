@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GeneratorMapped" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="com.promikhail.research.ip4list.generator.MainKt" />
+    <module name="IP4List.generator.main" />
+    <option name="PROGRAM_PARAMETERS" value="mode=mapped" />
+    <shortenClasspath name="NONE" />
+    <option name="VM_PARAMETERS" value="-Xms1g -Xmx6g" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
